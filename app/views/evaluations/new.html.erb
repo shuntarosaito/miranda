@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css">
+  <title>Miranda</title>
+</head>
+
+<%= form_for(@company) do |f| %>
+  <%= f.text_field :name, placeholder: "会社名を入力してください", class: "form-control" %>
+  <div style="margin: 8px 0">
+  <%= f.label :salary_rate, "給料", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :salary_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :安定性, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :福利厚生, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :将来性, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :アクセス, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :知名度, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :自己成長, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :人間関係, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :出世, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :労働時間, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :労働環境, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :やりがい, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+  <div style="margin: 8px 0">
+  <%= f.label :社会貢献, style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  </div>
+<% end %>
