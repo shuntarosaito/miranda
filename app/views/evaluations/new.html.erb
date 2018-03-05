@@ -5,58 +5,65 @@
   <title>Miranda</title>
 </head>
 
-<%= form_for(@company) do |f| %>
-  <%= f.text_field :name, placeholder: "会社名を入力してください", class: "form-control" %>
+<%= form_for [@user, @company, @evaluation] do |f| %>
+  <%= f.label :company_id, "会社" %>
+  <%= f.collection_select :company_id, Company.all, :id, :name %>
   <div style="margin: 8px 0">
   <%= f.label :salary_rate, "給料", style: { 'margin-right' => 8 } %>
   <%= f.number_field :salary_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :安定性, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :stability_rate, "安定性", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :stability_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :福利厚生, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :benefits_rate, "福利厚生", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :benefits_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :将来性, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :future_rate, "将来性", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :future_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :アクセス, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :access_rate, "アクセス", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :access_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :知名度, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :reputation_rate, "知名度", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :reputation_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :自己成長, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :self_growth_rate, "自己成長", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :self_growth_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :人間関係, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :human_relationships_rate, "人間関係", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :human_relationships_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :出世, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :promotion_rate, "出世", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :promotion_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :労働時間, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :working_time_rate, "労働時間", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :working_time_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :労働環境, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :working_environment_rate, "労働環境", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :working_environment_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :やりがい, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :rewarding_rate, "やりがい", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :rewarding_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
   <div style="margin: 8px 0">
-  <%= f.label :社会貢献, style: { 'margin-right' => 8 } %>
-  <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  <%= f.label :social_contribution_rate, "社会貢献", style: { 'margin-right' => 8 } %>
+  <%= f.number_field :social_contribution_rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
   </div>
+  <div class="row">
+    <div class="col10 push1">
+      <%= button_tag type: "submit", class: "btn btn--block" do %>
+        投稿する<i class="icon-arrow-right"></i>
+      <% end %>
+    </div>
 <% end %>

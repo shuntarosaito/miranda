@@ -6,7 +6,14 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    Company.create
+    Company.create(create_params)
+
+    redirect_to controller: :users, action: :show
+  end
+
+  private
+  def create_params
+    params.require(:company).permit(:name, :comment)
   end
 
 end
