@@ -1,0 +1,15 @@
+<%= form_for @member do |f| %>
+  <div>
+  <%= f.label(:salary_rate, "給料") %>
+  <%= f.text_field :salary_rate %>
+  </div>
+  <div>
+  <%= f.label :stability_rate, "安定性" %>
+  <%= f.text_field :stability_rate %>
+  </div>
+  <div>
+  <%= f.label :phone, "電話番号" %>
+  <%= f.text_field :phone %>
+  </div>
+  <%= f.submit "更新" %>
+<% end %>

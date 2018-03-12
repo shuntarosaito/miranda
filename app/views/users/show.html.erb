@@ -1,0 +1,42 @@
+<h2>会社一覧</h2>
+
+  <table border="2">
+    <thead>
+      <tr>
+        <th>会社名</th>
+        <th>給料</th>
+        <th>安定性</th>
+        <th>福利厚生</th>
+        <th>将来性</th>
+        <th>アクセス</th>
+        <th>知名度</th>
+        <th>自己成長</th>
+        <th>人間関係</th>
+        <th>出世</th>
+        <th>労働時間</th>
+        <th>労働環境</th>
+        <th>やりがい</th>
+        <th>社会貢献</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%  current_user.evaluations.each do |evaluation| %>
+        <tr>
+          <td><%= evaluation.company.name %></td>
+          <td><%= evaluation.salary_rate %></td>
+          <td><%= evaluation.stability_rate %></td>
+          <td><%= evaluation.benefits_rate %></td>
+          <td><%= evaluation.future_rate %></td>
+          <td><%= evaluation.access_rate %></td>
+          <td><%= evaluation.reputation_rate %></td>
+          <td><%= evaluation.self_growth_rate %></td>
+          <td><%= evaluation.human_relationships_rate %></td>
+          <td><%= evaluation.promotion_rate %></td>
+          <td><%= evaluation.working_time_rate %></td>
+          <td><%= evaluation.working_environment_rate %></td>
+          <td><%= evaluation.rewarding_rate %></td>
+          <td><%= evaluation.social_contribution_rate %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
