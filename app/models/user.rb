@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :evaluations
   has_many :companies
+  has_one :display_evaluation
+
 end

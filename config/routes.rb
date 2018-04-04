@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: :show
-  resources :companies, only: [:new, :create]
-  resources :evaluations, only: [:new, :create]
+  resources :companies, only: [:new, :create, :destroy]
+  resources :evaluations, only: [:new, :create, :edit, :update, :destroy]
+  resources :display_evaluations, only: [:new, :create, :edit, :update]
   root 'users#show'
   end
 

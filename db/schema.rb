@@ -11,13 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226124831) do
+ActiveRecord::Schema.define(version: 20180403115341) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "comment",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "display_evaluations", force: :cascade do |t|
+    t.integer "user_id",                          limit: 4
+    t.boolean "display_salary_rate",                        default: true, null: false
+    t.boolean "display_stability_rate",                     default: true, null: false
+    t.boolean "display_benefits_rate",                      default: true, null: false
+    t.boolean "display_future_rate",                        default: true, null: false
+    t.boolean "display_access_rate",                        default: true, null: false
+    t.boolean "display_reputation_rate",                    default: true, null: false
+    t.boolean "display_self_growth_rate",                   default: true, null: false
+    t.boolean "display_human_relationships_rate",           default: true, null: false
+    t.boolean "display_promotion_rate",                     default: true, null: false
+    t.boolean "display_working_time_rate",                  default: true, null: false
+    t.boolean "display_working_environment_rate",           default: true, null: false
+    t.boolean "display_rewarding_rate",                     default: true, null: false
+    t.boolean "display_social_contribution_rate",           default: true, null: false
   end
 
   create_table "evaluations", force: :cascade do |t|

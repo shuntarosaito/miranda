@@ -1,0 +1,88 @@
+<h3>あなたは何を軸に会社を評価しますか？</h3>
+
+<%= form_for @display_evaluation do |f| %>
+<div>
+<%= f.label :display_salary_rate, "給料" %>
+<label><%= f.radio_button :display_salary_rate, true %> はい </label>
+<label><%= f.radio_button :display_salary_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_stability_rate, "安定性" %>
+<label><%= f.radio_button :display_stability_rate, true %> はい </label>
+<label><%= f.radio_button :display_stability_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_benefits_rate, "福利厚生" %>
+<label><%= f.radio_button :display_benefits_rate, true %> はい </label>
+<label><%= f.radio_button :display_benefits_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_future_rate, "将来性" %>
+<label><%= f.radio_button :display_future_rate, true %> はい </label>
+<label><%= f.radio_button :display_future_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_access_rate, "アクセス" %>
+<label><%= f.radio_button :display_access_rate, true %> はい </label>
+<label><%= f.radio_button :display_access_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_reputation_rate, "知名度" %>
+<label><%= f.radio_button :display_reputation_rate, true %> はい </label>
+<label><%= f.radio_button :display_reputation_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_self_growth_rate, "自己成長" %>
+<label><%= f.radio_button :display_self_growth_rate, true %> はい </label>
+<label><%= f.radio_button :display_self_growth_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_human_relationships_rate, "人間関係" %>
+<label><%= f.radio_button :display_human_relationships_rate, true %> はい </label>
+<label><%= f.radio_button :display_human_relationships_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :isplay_promotion_rate, "出世" %>
+<label><%= f.radio_button :display_promotion_rate, true %> はい </label>
+<label><%= f.radio_button :display_promotion_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_working_time_rate, "労働時間" %>
+<label><%= f.radio_button :display_working_time_rate, true %> はい </label>
+<label><%= f.radio_button :display_working_time_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_working_environment_rate, "労働環境" %>
+<label><%= f.radio_button :display_working_environment_rate, true %> はい </label>
+<label><%= f.radio_button :display_working_environment_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :display_rewarding_rate, "やりがい" %>
+<label><%= f.radio_button :display_rewarding_rate, true %> はい </label>
+<label><%= f.radio_button :display_rewarding_rate, false %> いいえ</label>
+</div>
+
+<div>
+<%= f.label :isplay_social_contribution_rate, "社会貢献" %>
+<label><%= f.radio_button :display_social_contribution_rate, true %> はい </label>
+<label><%= f.radio_button :display_social_contribution_rate, false %> いいえ</label>
+</div>
+
+<div class="row">
+    <div class="col10 push1">
+      <%= button_tag type: "submit", class: "btn btn--block" do %>
+        評価軸を変更する<i class="icon-arrow-right"></i>
+      <% end %>
+    </div>
+<% end %>

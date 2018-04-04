@@ -3,6 +3,7 @@ before_action :authenticate_user!, only: :new
 
   def new
     @evaluation = Evaluation.new
+
   end
 
   def create
@@ -16,6 +17,15 @@ before_action :authenticate_user!, only: :new
   end
 
   def update
+    evaluation = Evaluation.find(params[:id])
+    evaluation.update(create_params)
+
+    redirect_to controller: :users, action: :show
+  end
+
+  def destroy
+    evaluation = Evaluation.find(params[:id])
+    evaluation.destroy
 
     redirect_to controller: :users, action: :show
   end

@@ -11,6 +11,12 @@ class CompaniesController < ApplicationController
     redirect_to controller: :users, action: :show
   end
 
+  def destroy
+    company = Company.find(params[:id])
+    company.destroy
+
+    redirect_to controller: :users, action: :show
+  end
   private
   def create_params
     params.require(:company).permit(:name, :comment)

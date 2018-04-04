@@ -1,42 +1,108 @@
-<h2>会社一覧</h2>
 
-  <table border="2">
-    <thead>
-      <tr>
-        <th>会社名</th>
-        <th>給料</th>
-        <th>安定性</th>
-        <th>福利厚生</th>
-        <th>将来性</th>
-        <th>アクセス</th>
-        <th>知名度</th>
-        <th>自己成長</th>
-        <th>人間関係</th>
-        <th>出世</th>
-        <th>労働時間</th>
-        <th>労働環境</th>
-        <th>やりがい</th>
-        <th>社会貢献</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%  current_user.evaluations.each do |evaluation| %>
-        <tr>
-          <td><%= evaluation.company.name %></td>
-          <td><%= evaluation.salary_rate %></td>
-          <td><%= evaluation.stability_rate %></td>
-          <td><%= evaluation.benefits_rate %></td>
-          <td><%= evaluation.future_rate %></td>
-          <td><%= evaluation.access_rate %></td>
-          <td><%= evaluation.reputation_rate %></td>
-          <td><%= evaluation.self_growth_rate %></td>
-          <td><%= evaluation.human_relationships_rate %></td>
-          <td><%= evaluation.promotion_rate %></td>
-          <td><%= evaluation.working_time_rate %></td>
-          <td><%= evaluation.working_environment_rate %></td>
-          <td><%= evaluation.rewarding_rate %></td>
-          <td><%= evaluation.social_contribution_rate %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container" role="toolbar">
+    <div class="row" role="group">
+      <button type="button" class="col-md-4 btn btn-default btn-lg"><a href="/display_evaluations/<%=  current_user.id %>/edit">評価軸を変更する</a></button>
+      <button type="button" class="col-md-4 btn btn-default btn-lg"><a class="post" href="/companies/new">会社を登録する</a></button>
+      <button type="button" class="col-md-4 btn btn-default btn-lg"><a class="post" href="/evaluations/new">登録した会社を評価する</a></button>
+    </div>
+  </div>
+
+
+<h2>会社一覧</h2>
+    <div class="table-responsive">
+      <table class="table table-condensed" style="table-layout:fixed;" border="2">
+        <thead>
+          <tr>
+            <th>会社名</th>
+            <% if current_user.display_evaluation.display_salary_rate %>
+              <th>給料</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_stability_rate %>
+              <th>安定性</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_benefits_rate %>
+              <th>福利厚生</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_future_rate %>
+              <th>将来性</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_access_rate %>
+              <th>アクセス</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_reputation_rate %>
+              <th>知名度</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_self_growth_rate %>
+              <th>自己成長</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_human_relationships_rate %>
+              <th>人間関係</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_promotion_rate %>
+              <th>出世</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_working_time_rate %>
+              <th>労働時間</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_working_environment_rate %>
+              <th>労働環境</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_rewarding_rate %>
+              <th>やりがい</th>
+            <% end %>
+            <% if current_user.display_evaluation.display_social_contribution_rate %>
+              <th>社会貢献</th>
+            <% end %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%  current_user.evaluations.each do |evaluation| %>
+            <tr>
+              <td>
+                <a href="/evaluations/<%= evaluation.id %>/edit"><%= evaluation.company.name %></a>
+              </td>
+              <% if current_user.display_evaluation.display_salary_rate %>
+                <td><%= evaluation.salary_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_stability_rate %>
+                <td><%= evaluation.stability_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_benefits_rate %>
+                <td><%= evaluation.benefits_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_future_rate %>
+                <td><%= evaluation.future_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_access_rate %>
+                <td><%= evaluation.access_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_reputation_rate %>
+                <td><%= evaluation.reputation_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_self_growth_rate %>
+                <td><%= evaluation.self_growth_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_human_relationships_rate %>
+               <td><%= evaluation.human_relationships_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_promotion_rate %>
+                <td><%= evaluation.promotion_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_working_time_rate %>
+                <td><%= evaluation.working_time_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_working_environment_rate %>
+                <td><%= evaluation.working_environment_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_rewarding_rate %>
+                <td><%= evaluation.rewarding_rate %></td>
+              <% end %>
+              <% if current_user.display_evaluation.display_social_contribution_rate %>
+                <td><%= evaluation.social_contribution_rate %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
