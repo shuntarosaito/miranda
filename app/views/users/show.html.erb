@@ -1,15 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Miranda</title>
+  <link rel="stylesheet" href="users.css.scss">
+</head>
 
-<div class="container" role="toolbar">
-    <div class="row" role="group">
-      <button type="button" class="col-md-4 btn btn-default btn-lg"><a href="/display_evaluations/<%=  current_user.id %>/edit">評価軸を変更する</a></button>
-      <button type="button" class="col-md-4 btn btn-default btn-lg"><a class="post" href="/companies/new">会社を登録する</a></button>
-      <button type="button" class="col-md-4 btn btn-default btn-lg"><a class="post" href="/evaluations/new">登録した会社を評価する</a></button>
-    </div>
-  </div>
+<main class="main">
+<nav class="global-nav">
+  <ul>
+    <li class="nav-item">
+      <a href="/display_evaluations/<%=  current_user.id %>/edit">
+      <span>評価軸を変更する</span>
+      </a>
+      </li>
+    <li class="nav-item"><a class="post" href="/companies/new">
+      <span>会社を登録する</span>
+      </a>
+      </li>
+    <li class="nav-item"><a class="post" href="/evaluations/new">
+      <span>会社を評価する</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
-
-<h2>会社一覧</h2>
-    <div class="table-responsive">
+<div class="wrapper_table">
+  <div class="container">
+    <h2>会社一覧</h2>
+    <div class="row table-responsive">
       <table class="table table-condensed" style="table-layout:fixed;" border="2">
         <thead>
           <tr>
@@ -53,56 +72,93 @@
             <% if current_user.display_evaluation.display_social_contribution_rate %>
               <th>社会貢献</th>
             <% end %>
+            <th>平均値</th>
+
           </tr>
         </thead>
 
         <tbody>
           <%  current_user.evaluations.each do |evaluation| %>
+            <% total = 0 %>
+            <% count = 0 %>
             <tr>
               <td>
                 <a href="/evaluations/<%= evaluation.id %>/edit"><%= evaluation.company.name %></a>
               </td>
               <% if current_user.display_evaluation.display_salary_rate %>
                 <td><%= evaluation.salary_rate %></td>
+                <% total += evaluation.salary_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_stability_rate %>
                 <td><%= evaluation.stability_rate %></td>
+                <% total += evaluation.stability_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_benefits_rate %>
                 <td><%= evaluation.benefits_rate %></td>
+                <% total += evaluation.benefits_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_future_rate %>
                 <td><%= evaluation.future_rate %></td>
+                <% total += evaluation.future_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_access_rate %>
                 <td><%= evaluation.access_rate %></td>
+                <% total += evaluation.access_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_reputation_rate %>
                 <td><%= evaluation.reputation_rate %></td>
+                <% total += evaluation.reputation_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_self_growth_rate %>
                 <td><%= evaluation.self_growth_rate %></td>
+                <% total += evaluation.self_growth_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_human_relationships_rate %>
                <td><%= evaluation.human_relationships_rate %></td>
+               <% total += evaluation.human_relationships_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_promotion_rate %>
                 <td><%= evaluation.promotion_rate %></td>
+                <% total += evaluation.promotion_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_working_time_rate %>
                 <td><%= evaluation.working_time_rate %></td>
+                <% total += evaluation.working_time_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_working_environment_rate %>
                 <td><%= evaluation.working_environment_rate %></td>
+                <% total += evaluation.working_environment_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_rewarding_rate %>
                 <td><%= evaluation.rewarding_rate %></td>
+                <% total += evaluation.rewarding_rate %>
+                <% count += 1 %>
               <% end %>
               <% if current_user.display_evaluation.display_social_contribution_rate %>
                 <td><%= evaluation.social_contribution_rate %></td>
+                <% total += evaluation.social_contribution_rate %>
+                <% count += 1 %>
               <% end %>
+              <td>
+                <%= (total.to_f / count).round(1) %>
+                <% count %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
   </div>
+</div>
+</div>
+</main>

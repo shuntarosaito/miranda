@@ -1,8 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Miranda</title>
+  <link rel="stylesheets" href="display_evaluations.css.scss">
+</head>
 
+<main class="display_evaluations">
 <h3>あなたは何を軸に会社を評価しますか？</h3>
 
 <%= form_for @display_evaluation do |f| %>
-<div>
+<div class="display">
 <%= f.label :display_salary_rate, "給料" %>
 <label><%= f.radio_button :display_salary_rate, true %> はい </label>
 <label><%= f.radio_button :display_salary_rate, false %> いいえ</label>
@@ -86,4 +94,6 @@
         評価軸を登録する<i class="icon-arrow-right"></i>
       <% end %>
     </div>
+</div>
 <% end %>
+</main>

@@ -14,3 +14,48 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+  text-align: center;
+}
+
+
+.header{
+  width: 100%;
+}
+
+.footer {
+  font-size: 14px;
+  margin-top: 50px;
+  background: #708090;
+  width: 100%;
+}
+
+.logo{
+  background-color: #FFFAFA ;
+  text-align: center;
+  height: 70px;
+}
+
+.logo a{
+  color: ;
+  font-family: Courier New;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: center;
+}
+
+
+
+/*{
+  text-align: center;
+}
+*/
