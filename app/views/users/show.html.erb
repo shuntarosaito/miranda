@@ -27,6 +27,7 @@
 
 <div class="wrapper_table">
   <div class="container">
+    <% if current_user.display_evaluation.present? %>
     <h2>会社一覧</h2>
     <div class="row table-responsive">
       <table class="table table-condensed" style="table-layout:fixed;" border="2">
@@ -159,6 +160,7 @@
         </tbody>
       </table>
   </div>
+  <% end %>
 </div>
 </div>
 </main>
